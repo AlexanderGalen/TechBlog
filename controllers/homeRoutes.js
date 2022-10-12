@@ -45,16 +45,19 @@ router.get('/post/:id', async (req, res) => {
     console.log("got post: ");
     console.log(post);
 
-    // get comments for this post
+    // // get comments for this post
     const postCommentsData = await Comment.findAll({
         where: {
             post_id: req.params.id
-        }
+        },
+        include: [{
+            model: User,
+            attributes: ["name"],
+        }]
     });
 
-    const postComments = postCommentsData.get({plain: true});
-    console.log(" got comments: ");
-    console.log(postComments);
+
+    const postComments = postCommentsData.map((comment) => comment.get({plain: true}));
 
     res.render('post', {
       post,

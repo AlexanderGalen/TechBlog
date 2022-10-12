@@ -1,15 +1,15 @@
 <!-- Loop over each object in the posts array -->
 {{#each posts as |post| }}
-<section class="row mb-4 post">
+<section class="row mb-4 card">
   <section class="col-md-5">
-    <a href="/post/{{post.id}}">
-      <h2>
+    <a href="/post/{{post.id}}" class="text-decoration-none">
+      <h2 class="fw-bold">
         {{post.title}}
       </h2>
-      <p>Posted by {{post.user.name}} on {{post.createdAt}}</p>
     </a>
+    <p>Posted by {{post.user.name}} on {{format_date post.createdAt}}</p>
   </section>
-  <section class="col-md-7">
+  <section>
     <p>
       {{post.body}}
     </p>

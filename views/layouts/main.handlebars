@@ -13,15 +13,19 @@
 
 <body>
   <section class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+    <header class="display-flex justify-space-between align-center bg-info p-2">
 
-      <nav>
+      <nav class="row text-white p-4">
         {{!-- <!-- Conditionally render login or logout links --> --}}
-        {{#if logged_in}}
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+        <section class="col"><a href="/dashboard" class="text-white text-decoration-none h4">Dashboard</a></section>
+        <section class="col-6 text-center"><a href="/" class="text-white text-decoration-none h1 fw-bold">TechBlog</a></section>
+        <section class="col text-end">
+          {{#if logged_in}}
+          <a class="text-white text-decoration-none h4" id="logout">logout</a>
+          {{else}}
+          <a href="/login" class="text-white text-decoration-none h4">login</a>
+          {{/if}}
+        </section>
       </nav>
     </header>
     <main class="container container-fluid mt-5">
