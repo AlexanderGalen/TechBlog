@@ -2,17 +2,6 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get("/", async (req, res) => {
-    // return all the comments of the given post_id in the request body
-    try {
-        const commentsData = await Comment.findAll({where: {post_id: req.body.post_id}});
-
-        const comments = commentsData.map((comment) => comment.get({plain: true}));
-
-        res.status(200).json(comments);
-    }
-})
-
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
