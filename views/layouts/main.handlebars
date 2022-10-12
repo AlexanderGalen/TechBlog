@@ -12,15 +12,15 @@
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
+  <section class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
 
       <nav>
-        <!-- Conditionally render login or logout links -->
+        {{!-- <!-- Conditionally render login or logout links --> --}}
         {{#if logged_in}}
-        {{!-- <button class="no-button" id="logout">logout</button> --}}
+        <button class="no-button" id="logout">logout</button>
         {{else}}
-        {{!-- <a href="/login">login</a> --}}
+        <a href="/login">login</a>
         {{/if}}
       </nav>
     </header>
@@ -32,7 +32,7 @@
     <footer>
       
     </footer>
-  </div>
+  </section>
 
   <!-- load logout script for logged in users only -->
   {{#if logged_in}}
